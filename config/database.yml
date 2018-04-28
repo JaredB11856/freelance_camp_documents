@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  username: Jared
+  password: "0000"
+
+development:
+  <<: *default
+  database: freelance_camp_documents_development
+  host: localhost
+  username: Jared
+  password: "0000"
+
+test:
+  <<: *default
+  database: freelance_camp_documents_test
+production:
+  <<: *default
+  database: freelance_camp_documents_production
+  username: freelance_camp_documents
+  password: <%= ENV['FREELANCE_CAMP_DOCUMENTS_DATABASE_PASSWORD'] %>
